@@ -45,4 +45,39 @@ console.log('E: ' + Math.E);  //
 console.log('3的平方根: ' + Math.sqrt(3));  //
 console.log('3的立方根: ' + Math.pow(3,1/3));  //
 console.log('三角函数 Math.sin(0) : ' + Math.sin(0));  //
+console.log('10的自然对数 Math.log(10) : ' + Math.log(10));  //
+
+/*
+ * 无穷值Infinity 非数值NaN not a number
+ * 上溢出和下溢出不会发生错误，结果是一个特殊的无穷值 Infinity 和 负零，这个负零与常规零无法区分
+ * 除以零也不会报错，只会显示Infinity和-Infinity
+ * 零除以零返回NaN，此外，无穷除无穷，或负数平方根，或用无法转换为数值的非数值的结果也会是NaN
+ * 非数值与任何值比较都不相等，也不等于自己，
+ * Number.isNaN 判断参数是否是NaN，不是NaN的非数值也返回false 可以使用 Number.isNaN(Number(参数)) 来转换一次数值
+ * isNaN 判断参数是否是非数值，尝试转换为数值，无法转换返回true
+ * Number.isFinite 判断参数不是NaN，Infinity，-Infinity时返回true，Finite表示有限的
+ */
+console.log('最大值+最大值: ' + (Number.MAX_VALUE + Number.MAX_VALUE)); // Infinity
+console.log('最小值-最小值: ' + (Number.MIN_VALUE - Number.MIN_VALUE)); // 0
+console.log('1/0 : ' + 1/0); // Infinity
+console.log('-1/0 : ' + -1/0); // -Infinity
+console.log('0/0 : ' + 0/0); // NaN
+console.log('Number.isNaN("Hello") : ',Number.isNaN('hello')); // false
+console.log('isNaN("Hello") : ',isNaN('hello')); // true
+console.log('Number.isNaN(Number("hello")) : ',Number.isNaN(Number("hello"))); // true
+console.log('Number,isFinite(100)',Number.isFinite(100)); //true
+
+/*
+ * 二进制浮点数和舍入错误
+ * 尽管JS能表示的浮点数很大，但数值的表示经常是实际数值的近似值
+ */
+console.log('.3 - .2 === .2 - .1 : ',.3 - .2 === .2 - .1); // false
+console.log('.3 - .2 === .1 : ',.3 - .2 === .1); // false
+console.log('.2 - .1 === .1 : ',.2 - .1 === .1); // true
+
+// BigInt
+// 表示64位整数,字面量写作一串数字后接字母n
+console.log('BigInt 字面量: ',1234567890n);
+console.log('BigInt 对象: ',BigInt(123456780));
+
 
