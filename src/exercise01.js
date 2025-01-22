@@ -25,12 +25,14 @@
 /*
  * 数值型 Number
  * 基数为10的字面量可直接写成数字序列，十六进制用0x或0X开头，ES6可用0b 0B表示二进制，0o 0O表示八进制
- * 测试过字面量用科学计数法，但是打印也是科学计数法，特别是E-的数值
+ * 测试过字面量用科学计数法，但是打印也是科学计数法，特别是E-的数值,使用toLocateString() 转成数字字符串
  * 数值字面量的分隔符，可用_分割数值，让数值分割为看的清的数字段
  */
 let num = 123_456_789;
 console.log('let num = 123_456_789 result: ' + num);
-
+// 默认是有逗号的
+console.log('Number最大值数值写法',Number.MAX_VALUE.toLocaleString('en-US', {useGrouping: false}));
+console.log('Number最小值数值写法',Number.MIN_VALUE);
 // 除+-*/%外，Math对象的函数和常量
 console.log('2的3次方: ' + Math.pow(2, 3)); // 2的3次方
 console.log('0.6 舍入到最接近的整数: ' + Math.round(0.6)); // 舍入到最接近的整数
@@ -77,7 +79,7 @@ console.log('.2 - .1 === .1 : ',.2 - .1 === .1); // true
 
 // BigInt
 // 表示64位整数,字面量写作一串数字后接字母n
-console.log('BigInt 字面量: ',1234567890n);
-console.log('BigInt 对象: ',BigInt(123456780));
+console.log('BigInt 字面量: ',1234567890n+10n);
+console.log('BigInt 对象: ',BigInt(123456780)+10n);
 
 
